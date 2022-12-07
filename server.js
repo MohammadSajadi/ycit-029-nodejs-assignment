@@ -29,6 +29,18 @@ app.get("/api/users", (req, res) => {
 // /api/users/1      <-- path param (req.params.id)
 // /api/users?id=1   <-- query param (req.query.id)
 
+app.get('/api/users/:id', (req, res) => {
+    if ( req.params['id'] === '1') {
+        res.send(data[0])
+    } else if ( req.params['id'] === '2') {
+        res.send(data[1])
+    } else if ( req.params['id'] === '3') {
+        res.send(data[2])
+    } else {
+        res.send("user not found")
+    }
+  });
+    
 // BONUS QUESTION - Add routes to implement all the CRUD operations (POST, PUT, DELETE)
 
 app.listen(3000, () => {
